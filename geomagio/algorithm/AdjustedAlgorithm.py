@@ -27,7 +27,9 @@ class AdjustedAlgorithm(Algorithm):
         inchannels = inchannels or ["H", "E", "Z", "F"]
         outchannels = outchannels or ["X", "Y", "Z", "F"]
         Algorithm.__init__(
-            self, inchannels=inchannels, outchannels=outchannels,
+            self,
+            inchannels=inchannels,
+            outchannels=outchannels,
         )
         # state variables
         self.matrix = matrix
@@ -176,7 +178,7 @@ class AdjustedAlgorithm(Algorithm):
                 return False
 
         # return false if F or remaining channels cannot produce data
-        return True
+        return False
 
     @classmethod
     def add_arguments(cls, parser):
