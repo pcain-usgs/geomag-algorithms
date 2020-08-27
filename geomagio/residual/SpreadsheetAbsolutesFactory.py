@@ -253,8 +253,7 @@ class SpreadsheetAbsolutesFactory(object):
         endtime: UTCDateTime,
         include_measurements: bool = True,
     ) -> List[Reading]:
-        """Read spreadsheet files between starttime/endtime.
-        """
+        """Read spreadsheet files between starttime/endtime."""
         readings = []
         start_filename = f"{observatory}-{starttime.datetime:%Y%j%H%M}.xlsm"
         end_filename = f"{observatory}-{endtime.datetime:%Y%j%H%M}.xlsm"
@@ -309,8 +308,7 @@ class SpreadsheetAbsolutesFactory(object):
     def _parse_absolutes(
         self, sheet: openpyxl.worksheet, base_date: str
     ) -> List[Absolute]:
-        """Parse absolutes from a summary sheet.
-        """
+        """Parse absolutes from a summary sheet."""
         absolutes = [
             Absolute(
                 element="D",
@@ -341,8 +339,7 @@ class SpreadsheetAbsolutesFactory(object):
     def _parse_measurements(
         self, sheet: openpyxl.worksheet, base_date: str, precision: str
     ) -> List[Measurement]:
-        """Parse measurements from a measurement sheet.
-        """
+        """Parse measurements from a measurement sheet."""
         measurements = []
         for m in SPREADSHEET_MEASUREMENTS:
             measurement_type = m["type"]
@@ -382,8 +379,7 @@ class SpreadsheetAbsolutesFactory(object):
         calculation_sheet: openpyxl.worksheet,
         summary_sheet: openpyxl.worksheet,
     ) -> Dict:
-        """Parse metadata from various sheets.
-        """
+        """Parse metadata from various sheets."""
         errors = []
         mark_azimuth = None
         try:
